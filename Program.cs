@@ -75,7 +75,7 @@ do
 
     var timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
     var inputAudioPath = $"input_{timestamp}.wav";
-    var ffmpegProcess = new Process
+    var soxProcess = new Process
     {
         StartInfo = new ProcessStartInfo
         {
@@ -89,15 +89,15 @@ do
 
     };
 
-    ffmpegProcess.Start();
+    soxProcess.Start();
 
     Console.WriteLine("Recording... Press Enter to stop.");
     Console.ReadLine();
 
-    ffmpegProcess.Kill();
-    ffmpegProcess.WaitForExit();
+    soxProcess.Kill();
+    soxProcess.WaitForExit();
 
-    ffmpegProcess = new Process
+    soxProcess = new Process
     {
         StartInfo = new ProcessStartInfo
         {
@@ -111,8 +111,8 @@ do
 
     };
 
-    ffmpegProcess.Start();
-    ffmpegProcess.WaitForExit();
+    soxProcess.Start();
+    soxProcess.WaitForExit();
 
     File.Delete(inputAudioPath);
 
