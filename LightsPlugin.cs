@@ -75,7 +75,7 @@ public class LightsPlugin
 
             HueBridgeIp = bridges.First().InternalIpAddress;
         }
-
+        
         var baseUrl = $"http://{HueBridgeIp}/api/{HueUsername}/";
         return baseUrl;
     }
